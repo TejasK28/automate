@@ -30,7 +30,7 @@ export default function App() {
   const [selectedCompany, setSelectedCompany] = useState('');
 
   useEffect(() => {
-    fetch(`${API_URL}/api/invoices`)
+    fetch('https://automate-red.vercel.app/api/invoices')
       .then(res => res.json())
       .then(data => {
         setInvoices(data);
