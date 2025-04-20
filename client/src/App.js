@@ -3,6 +3,8 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+
 // Helper to parse dates
 function parseDate(dateStr) {
   return dateStr ? new Date(dateStr) : null;
@@ -28,7 +30,7 @@ export default function App() {
   const [selectedCompany, setSelectedCompany] = useState('');
 
   useEffect(() => {
-    fetch('/api/invoices/')
+    fetch(`${API_URL}/api/invoices`)
       .then(res => res.json())
       .then(data => {
         setInvoices(data);
